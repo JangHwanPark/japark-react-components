@@ -5,12 +5,10 @@ import FadeInTitle from './index';
 import gsap from 'gsap';
 
 describe('FadeInTitle 컴포넌트', () => {
-  // gsap.core.Tween 타입을 사용하여 gsap.from 스파이의 반환 타입을 지정합니다.
-  let gsapFromSpy: vi.SpyInstance<gsap.core.Tween, Parameters<typeof gsap.from>>;
+  let gsapSpy: ReturnType<typeof vi.spyOn>;
 
   beforeEach(() => {
-    // gsap.from 함수에 대한 스파이 생성 및 dummy Tween 객체 반환 (필요한 메서드만 구현)
-    gsapFromSpy = vi.spyOn(gsap, 'from').mockImplementation(() => {
+    gsapSpy = vi.spyOn(gsap as any, 'from').mockImplementation(() => {
       return {
         pause: () => {}
       } as gsap.core.Tween;
@@ -61,10 +59,10 @@ describe('FadeInTitle 컴포넌트', () => {
     render(<FadeInTitle title="test" direction="left" delay={0.5} />);
 
     // gsap.from이 호출되었는지 확인합니다.
-    expect(gsapFromSpy).toHaveBeenCalled();
+    expect(gsapSpy).toHaveBeenCalled();
 
     // gsap.from 호출 시 전달된 애니메이션 옵션을 확인합니다.
-    const animationOptions = gsapFromSpy.mock.calls[0][2];
+    const animationOptions = gsapSpy.mock.calls[0][2];
     expect(animationOptions).toEqual(
         expect.objectContaining({
           x: -200,
