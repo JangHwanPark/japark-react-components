@@ -8,6 +8,7 @@ describe('Button 컴포넌트 테스트', () => {
     const { container } = render(<Button text='text'/>);
     
     // 스냅샷 테스트 : container의 둠 구조를 기록하여 비교
-    expect(container).toMatchSnapshot();
+    // container.firstChild를 사용해 버튼의 실제 DOM 요소만 캡처
+    expect(container.firstChild).toMatchSnapshot();
   })
 })
