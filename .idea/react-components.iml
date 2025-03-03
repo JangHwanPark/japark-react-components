@@ -9,5 +9,6 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="Note" />
+    <orderEntry type="module" module-name="Comento_JangHwanPark" />
   </component>
 </module>
