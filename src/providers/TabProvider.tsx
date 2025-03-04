@@ -1,5 +1,5 @@
-import { useCallback, useState, createContext, useContext } from "react";
-import { TabsProviderProps, TabsContextType } from "../types/tabs";
+import { useCallback, useState, createContext, useContext } from 'react';
+import { TabsProviderProps, TabsContextType } from '../types/tabs';
 
 // 탭 컨텍스트 생성
 /**
@@ -19,11 +19,11 @@ const TabsContext = createContext<TabsContextType<any> | undefined>(undefined);
  * const { active, handleTabChange } = useTabs();
  * ```
  */
-export const useTabs = <T extends object = {} | never> (): TabsContextType<T> => {
+export const useTabs = <T extends object = {} | never>(): TabsContextType<T> => {
   const context = useContext(TabsContext);
   if (!context) throw new Error('useTabs must be used within TabsContext');
   return context;
-}
+};
 
 // 탭 프로바이더를 사용해 상태를 전역 관리
 /**
@@ -47,15 +47,17 @@ export const useTabs = <T extends object = {} | never> (): TabsContextType<T> =>
  * </TabsProvider>
  * ```
  */
-export const TabsProvider = <T extends {} = {}> ({
+export const TabsProvider = <T extends {} = {}>({
   tabs,
   defaultTab = '',
-  children
+  children,
 }: TabsProviderProps<T>) => {
   const initialTab = tabs.some(tab => tab.key === defaultTab)
     ? defaultTab
-    // 존재하지 않는 탭이면 첫 번째 탭 선택
-    : (tabs.length > 0 ? tabs[0].key : "");
+    : // 존재하지 않는 탭이면 첫 번째 탭 선택
+      tabs.length > 0
+      ? tabs[0].key
+      : '';
   const [active, setActive] = useState<string>(initialTab);
 
   const handleTabChange = useCallback((tabKey: string) => {
@@ -66,5 +68,5 @@ export const TabsProvider = <T extends {} = {}> ({
     <TabsContext.Provider value={{ active, handleTabChange, tabs }}>
       {children}
     </TabsContext.Provider>
-  )
-}
+  );
+};

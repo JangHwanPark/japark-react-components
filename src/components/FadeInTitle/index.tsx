@@ -1,21 +1,21 @@
 import * as React from 'react';
-import clsx from "clsx";
+import clsx from 'clsx';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
-import {useRef} from "react";
+import { useRef } from 'react';
 
-interface FadeInTitleProps  extends React.HTMLAttributes<HTMLHeadingElement> {
+interface FadeInTitleProps extends React.HTMLAttributes<HTMLHeadingElement> {
   title: string;
-  titleType?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
+  titleType?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
   className?: string;
-  direction?: "left" | "right" | "top" | "bottom";
+  direction?: 'left' | 'right' | 'top' | 'bottom';
   delay?: number;
 }
 
 gsap.registerPlugin(useGSAP);
-const FadeInTitle: React.FC<FadeInTitleProps > = (props) => {
+const FadeInTitle: React.FC<FadeInTitleProps> = props => {
   const {
-    titleType: Heading = "h1",
+    titleType: Heading = 'h1',
     title,
     className,
     direction = null,
@@ -24,37 +24,39 @@ const FadeInTitle: React.FC<FadeInTitleProps > = (props) => {
   } = props;
 
   const headingRef = useRef(null);
-  const classes = clsx(className)
+  const classes = clsx(className);
 
   const distance = 200;
   let fadeDirection;
   switch (direction) {
-    case "left":
-      fadeDirection = {x: -distance};
+    case 'left':
+      fadeDirection = { x: -distance };
       break;
-    case "right":
-      fadeDirection = {x: distance};
+    case 'right':
+      fadeDirection = { x: distance };
       break;
-    case "bottom":
-      fadeDirection = {y: distance};
+    case 'bottom':
+      fadeDirection = { y: distance };
       break;
-    case "top":
-      fadeDirection = {y: distance};
+    case 'top':
+      fadeDirection = { y: distance };
       break;
     default:
-      fadeDirection = {x: 0};
+      fadeDirection = { x: 0 };
   }
 
   useGSAP(() => {
     gsap.from(headingRef.current, 1, {
       ...fadeDirection,
       opacity: 0,
-      delay
-    })
-  })
+      delay,
+    });
+  });
 
   return (
-      <Heading ref={headingRef} className={classes} {...rest}>{title}</Heading>
+    <Heading ref={headingRef} className={classes} {...rest}>
+      {title}
+    </Heading>
   );
 };
 

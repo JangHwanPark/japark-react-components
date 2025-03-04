@@ -1,5 +1,5 @@
-import clsx from "clsx";
-import { TabListProps } from "../../types/tabs";
+import clsx from 'clsx';
+import { TabListProps } from '../../types/tabs';
 
 /**
  * `TabList` 컴포넌트는 탭 버튼을 감싸는 컨테이너입니다.
@@ -15,19 +15,10 @@ import { TabListProps } from "../../types/tabs";
  * </TabList>
  * ```
  */
-const TabList = ({
-  children,
-  className = '',
-}: TabListProps) => {
-  const classes = clsx(
-    className,
-    'pb-5',
-    'flex items-center justify-between',)
+const TabList = ({ children, className = '' }: TabListProps) => {
+  const classes = clsx(className, 'pb-5', 'flex items-center justify-between');
   return (
-    <ul
-      role='tablist'
-      aria-orientation='horizontal'
-      className={classes}>
+    <ul role="tablist" aria-orientation="horizontal" className={classes}>
       {children}
     </ul>
   );

@@ -12,14 +12,8 @@
  * </TabPanels>
  * ```
  */
-const TabPanels = ({
-  children,
-} : {
-  children: React.ReactNode;
-}) => {
-  return (
-    <div>{children}</div>
-  );
+const TabPanels = ({ children }: { children: React.ReactNode }) => {
+  return <div>{children}</div>;
 };
 
 export default TabPanels;

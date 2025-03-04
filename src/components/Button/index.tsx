@@ -7,10 +7,12 @@ interface ButtonProps {
   disabled?: boolean;
 }
 
-const Button: React.FC<ButtonProps> = (props) => {
+const Button: React.FC<ButtonProps> = props => {
   const { text, className, ...rest } = props;
   return (
-      <button className={className} {...rest}>{text}</button>
+    <button className={className} {...rest}>
+      {text}
+    </button>
   );
 };
 

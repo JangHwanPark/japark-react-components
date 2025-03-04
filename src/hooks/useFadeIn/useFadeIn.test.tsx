@@ -2,11 +2,18 @@ import React from 'react';
 import { render } from '@testing-library/react';
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
 import gsap from 'gsap';
-import FadeInArticle from "../../components/FaildInArticle";
+import FadeInArticle from '../../components/FaildInArticle';
 
 // 테스트용 컴포넌트
-const TestComponent: React.FC<{ direction: "left" | "right" | "top" | "bottom"; delay: number }> = ({ direction, delay }) => {
-  return <FadeInArticle direction={direction} delay={delay}>Test Component</FadeInArticle>;
+const TestComponent: React.FC<{
+  direction: 'left' | 'right' | 'top' | 'bottom';
+  delay: number;
+}> = ({ direction, delay }) => {
+  return (
+    <FadeInArticle direction={direction} delay={delay}>
+      Test Component
+    </FadeInArticle>
+  );
 };
 
 describe('useFadeIn hook', () => {
@@ -28,13 +35,13 @@ describe('useFadeIn hook', () => {
     const { container } = render(<TestComponent direction="left" delay={delay} />);
     const element = container.firstChild;
     expect(gsapSpy).toHaveBeenCalledWith(
-        element,
-        expect.objectContaining({
-          duration: 1,
-          x: -200,
-          opacity: 0,
-          delay,
-        })
+      element,
+      expect.objectContaining({
+        duration: 1,
+        x: -200,
+        opacity: 0,
+        delay,
+      }),
     );
   });
 
@@ -43,13 +50,13 @@ describe('useFadeIn hook', () => {
     const { container } = render(<TestComponent direction="right" delay={delay} />);
     const element = container.firstChild;
     expect(gsapSpy).toHaveBeenCalledWith(
-        element,
-        expect.objectContaining({
-          duration: 1,
-          x: 200,
-          opacity: 0,
-          delay,
-        })
+      element,
+      expect.objectContaining({
+        duration: 1,
+        x: 200,
+        opacity: 0,
+        delay,
+      }),
     );
   });
 
@@ -58,13 +65,13 @@ describe('useFadeIn hook', () => {
     const { container } = render(<TestComponent direction="top" delay={delay} />);
     const element = container.firstChild;
     expect(gsapSpy).toHaveBeenCalledWith(
-        element,
-        expect.objectContaining({
-          duration: 1,
-          y: -200,
-          opacity: 0,
-          delay,
-        })
+      element,
+      expect.objectContaining({
+        duration: 1,
+        y: -200,
+        opacity: 0,
+        delay,
+      }),
     );
   });
 
@@ -73,13 +80,13 @@ describe('useFadeIn hook', () => {
     const { container } = render(<TestComponent direction="bottom" delay={delay} />);
     const element = container.firstChild;
     expect(gsapSpy).toHaveBeenCalledWith(
-        element,
-        expect.objectContaining({
-          duration: 1,
-          y: 200,
-          opacity: 0,
-          delay,
-        })
+      element,
+      expect.objectContaining({
+        duration: 1,
+        y: 200,
+        opacity: 0,
+        delay,
+      }),
     );
   });
 });

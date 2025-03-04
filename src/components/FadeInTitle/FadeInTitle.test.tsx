@@ -10,7 +10,7 @@ describe('FadeInTitle 컴포넌트', () => {
   beforeEach(() => {
     gsapSpy = vi.spyOn(gsap as any, 'from').mockImplementation(() => {
       return {
-        pause: () => {}
+        pause: () => {},
       } as gsap.core.Tween;
     });
   });
@@ -64,11 +64,11 @@ describe('FadeInTitle 컴포넌트', () => {
     // gsap.from 호출 시 전달된 애니메이션 옵션을 확인합니다.
     const animationOptions = gsapSpy.mock.calls[0][2];
     expect(animationOptions).toEqual(
-        expect.objectContaining({
-          x: -200,
-          opacity: 0,
-          delay: 0.5
-        })
+      expect.objectContaining({
+        x: -200,
+        opacity: 0,
+        delay: 0.5,
+      }),
     );
   });
 });

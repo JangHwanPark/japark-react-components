@@ -1,24 +1,24 @@
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
-import {useRef, useMemo} from "react";
+import { useRef, useMemo } from 'react';
 
 gsap.registerPlugin(useGSAP);
 const useFadeIn = (
-    direction: "left" | "right" | "top" | "bottom" = "left",
-    delay: number = 0,
-    distance: number = 200,
-    duration: number = 1
+  direction: 'left' | 'right' | 'top' | 'bottom' = 'left',
+  delay: number = 0,
+  distance: number = 200,
+  duration: number = 1,
 ) => {
   const componentRef = useRef<HTMLDivElement | null>(null);
   const fadeDirection = useMemo(() => {
     switch (direction) {
-      case "left":
+      case 'left':
         return { x: -distance };
-      case "right":
+      case 'right':
         return { x: distance };
-      case "top":
+      case 'top':
         return { y: -distance };
-      case "bottom":
+      case 'bottom':
         return { y: distance };
     }
   }, [direction, distance]);
@@ -34,7 +34,7 @@ const useFadeIn = (
     }
   }, [fadeDirection, delay, duration]);
 
-  return {componentRef};
-}
+  return { componentRef };
+};
 
 export { useFadeIn };

@@ -1,5 +1,5 @@
-import { TabsProvider } from "../../providers/TabProvider";
-import { TabsProps } from "../../types/tabs";
+import { TabsProvider } from '../../providers/TabProvider';
+import { TabsProps } from '../../types/tabs';
 
 /**
  * `Tabs` 컴포넌트는 여러 개의 탭을 관리하는 컨테이너 역할을 합니다.
@@ -21,16 +21,10 @@ import { TabsProps } from "../../types/tabs";
  * </Tabs>
  * ```
  */
-const Tabs = <T extends {} = {}> ({
-  tabs,
-  defaultTab,
-  children,
-}: TabsProps<T>) => {
+const Tabs = <T extends {} = {}>({ tabs, defaultTab, children }: TabsProps<T>) => {
   return (
     <TabsProvider tabs={tabs} defaultTab={defaultTab}>
-      <div
-        className='w-full'
-        aria-label='Tab Menu'>
+      <div className="w-full" aria-label="Tab Menu">
         {children}
       </div>
     </TabsProvider>

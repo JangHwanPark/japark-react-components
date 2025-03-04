@@ -1,6 +1,6 @@
-import { TabProps } from "../../types/tabs";
-import { useTabs } from "../../providers/TabProvider";
-import clsx from "clsx";
+import { TabProps } from '../../types/tabs';
+import { useTabs } from '../../providers/TabProvider';
+import clsx from 'clsx';
 
 /**
  * `Tab` 컴포넌트는 개별적인 탭 버튼을 렌더링합니다.
@@ -13,23 +13,16 @@ import clsx from "clsx";
  * <Tab tabKey="home" className="custom-tab">홈</Tab>
  * ```
  */
-const Tab = ({
-  tabKey,
-  className,
-  children
-}: TabProps) => {
-  const {active, handleTabChange} = useTabs();
+const Tab = ({ tabKey, className, children }: TabProps) => {
+  const { active, handleTabChange } = useTabs();
   const isActive = active === tabKey;
-  const classes = clsx(
-    className,
-    'w-full pb-2',
-    isActive && 'border-b-2 border-blue-500');
+  const classes = clsx(className, 'w-full pb-2', isActive && 'border-b-2 border-blue-500');
 
   return (
     <li className={classes}>
       <button
         role="tab"
-        className='w-full h-full cursor-pointer'
+        className="w-full h-full cursor-pointer"
         aria-selected={isActive}
         aria-controls={`panel-${tabKey}`}
         onClick={() => handleTabChange(tabKey)}>
