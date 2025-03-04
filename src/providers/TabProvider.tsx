@@ -1,5 +1,5 @@
 import { useCallback, useState, createContext, useContext } from 'react';
-import { TabsProviderProps, TabsContextType } from '../types/tabs';
+import { TabsProviderProps, TabsContextType } from '../Inputs/Tabs/tabs';
 
 // 탭 컨텍스트 생성
 /**

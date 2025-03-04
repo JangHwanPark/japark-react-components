@@ -5,7 +5,7 @@ import Tab from './Tab';
 import TabList from './TabList';
 import TabPanels from './TabPanels';
 import TabPanel from './TabPanel';
-import { TabItem } from '../../types/tabs';
+import { TabItem } from './tabs';
 
 // 테스트할 탭 데이터
 const tabs: TabItem[] = [

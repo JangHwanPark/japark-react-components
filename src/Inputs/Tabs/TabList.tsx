@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import { TabListProps } from '../../types/tabs';
+import { TabListProps } from '../../types/Tabs';
 
 /**
  * `TabList` 컴포넌트는 탭 버튼을 감싸는 컨테이너입니다.

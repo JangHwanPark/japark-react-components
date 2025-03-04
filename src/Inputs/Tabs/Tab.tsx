@@ -1,4 +1,4 @@
-import { TabProps } from '../../types/tabs';
+import { TabProps } from '../../types/Tabs';
 import { useTabs } from '../../providers/TabProvider';
 import clsx from 'clsx';
 

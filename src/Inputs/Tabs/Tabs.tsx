@@ -1,5 +1,5 @@
 import { TabsProvider } from '../../providers/TabProvider';
-import { TabsProps } from '../../types/tabs';
+import { TabsProps } from '../../types/Tabs';
 
 /**
  * `Tabs` 컴포넌트는 여러 개의 탭을 관리하는 컨테이너 역할을 합니다.
