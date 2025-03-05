@@ -1,4 +1,5 @@
 import { ProgressBar } from './DataDisplay/ProgressBar';
+import Tooltip from './DataDisplay/Tooltip/Tooltip';
 
 function App() {
   return (
@@ -8,6 +9,8 @@ function App() {
           <ProgressBar progress={100} />
           <ProgressBar progress={50} />
         </div>
+        <Tooltip text="Hello world!" />
+        <Tooltip text="Hello world!" arrow />
       </div>
     </div>
   );
