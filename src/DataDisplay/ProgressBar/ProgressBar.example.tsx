@@ -1,6 +1,6 @@
-import { ProgressBar } from './DataDisplay/ProgressBar';
+import { ProgressBar } from './index';
 
-function App() {
+const ProgressBarExample = () => {
   return (
     <div className="w-full h-screen flex items-center justify-center bg-gray-700">
       <div className="flex gap-4 p-4">
@@ -11,6 +11,6 @@ function App() {
       </div>
     </div>
   );
-}
+};
 
-export default App;
+export default ProgressBarExample;
