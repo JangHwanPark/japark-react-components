@@ -2,7 +2,7 @@ import React from 'react';
 import { render } from '@testing-library/react';
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
 import gsap from 'gsap';
-import FadeInArticle from '../../components/FaildInArticle';
+import FadeInArticle from '../../components/FadeInArticle';
 
 // 테스트용 컴포넌트
 const TestComponent: React.FC<{
