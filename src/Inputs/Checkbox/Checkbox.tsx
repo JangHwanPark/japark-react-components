@@ -3,8 +3,8 @@ import clsx from 'clsx';
 import { ImCheckboxChecked, ImCheckboxUnchecked } from 'react-icons/im';
 
 interface CheckboxProps {
-  checked?: boolean; // ✅ 부모에서 관리하는 상태
-  defaultChecked?: boolean; // ✅ 내부에서만 사용하는 초기 상태
+  checked?: boolean;
+  defaultChecked?: boolean;
   indeterminate?: boolean;
   disabled?: boolean;
   size?: 'sm' | 'md' | 'lg';
@@ -18,7 +18,7 @@ interface CheckboxProps {
 const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
   (
     {
-      checked, // ✅ props로 넘어오는 checked 상태
+      checked,
       defaultChecked = false,
       indeterminate = false,
       disabled = false,
@@ -29,10 +29,10 @@ const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
     },
     ref,
   ) => {
-    // ✅ 내부 상태에서 `checked` 값을 관리
+    // 내부 상태에서 checked 값을 관리
     const [internalChecked, setInternalChecked] = useState(checked ?? defaultChecked);
 
-    // ✅ checked prop이 변경될 때 내부 상태를 업데이트
+    // checked prop이 변경될 때 내부 상태를 업데이트
     useEffect(() => {
       if (checked !== undefined) {
         setInternalChecked(checked);
@@ -49,10 +49,10 @@ const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
       const newChecked = !internalChecked;
       console.log('새로운 checked 값:', newChecked);
 
-      // ✅ 내부 상태 업데이트
+      // 내부 상태 업데이트
       setInternalChecked(newChecked);
 
-      // ✅ 부모에게 상태 변경 전달
+      // 부모에게 상태 변경 전달
       onChange?.(newChecked);
     };
 
