@@ -1,55 +1,32 @@
-# React + TypeScript + Vite
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+<div style='text-align: center'>
+  <h1>Japark React Components</h1>
+</div>
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md)
-  uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses
-  [SWC](https://swc.rs/) for Fast Refresh
+## Project Introduction
 
-## Expanding the ESLint configuration
+This project is a React component library built with React, Tailwind CSS, TypeScript, and GSAP.
+It is currently under active development and provides the following features
+- Essential UI components for common use cases 
+- Utility components such as buttons, modals, and input fields 
+- Animated components powered by GSAP for smooth and interactive experiences 
+- We are continuously improving and expanding the library to enhance usability and flexibility.
 
-If you are developing a production application, we recommend updating the configuration to enable
-type aware lint rules:
+## Contribution Guide
+This project is open-source, and we welcome contributions from the community!
+If you’d like to contribute, please follow these steps
 
-- Configure the top-level `parserOptions` property like this:
+### 1. Check Issues
+- Browse the [Issues](https://github.com/JangHwanPark/japark-react-components/issues) tab to see existing tasks and bug reports.
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-});
-```
+### 2. Suggest New Features
+- If you have an idea for a new feature, feel free to open an Issue.
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or
-  `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the
-  config:
+### 3. Fork & Submit a PR
+- Fork the repository and create a new branch for your changes.
+- Once your work is complete, submit a[ Pull Request (PR)](https://github.com/JangHwanPark/japark-react-components/pulls)!
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react';
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-});
-```
+We appreciate all contributions and look forward to your support! 🙌
