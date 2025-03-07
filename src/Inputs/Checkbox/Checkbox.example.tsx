@@ -1,6 +1,6 @@
-import Checkbox from './Inputs/Checkbox/Checkbox';
+import Checkbox from './Checkbox';
 
-function App() {
+const CheckboxExample = () => {
   return (
     <div className="w-full h-screen flex items-center justify-center bg-[#0f1214]">
       <div className="flex gap-4 p-4">
@@ -10,6 +10,6 @@ function App() {
       </div>
     </div>
   );
-}
+};
 
-export default App;
+export default CheckboxExample;
