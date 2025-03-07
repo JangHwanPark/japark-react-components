@@ -1,6 +1,6 @@
 {
   "name": "japark-react-components",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "main": "dist/index.js",
   "license": "MIT",
   "module": "dist/index.esm.js",
@@ -15,7 +15,8 @@
     "preview": "vite preview",
     "test": "vitest",
     "test:run": "vitest run",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "release": "npm version patch && npm publish"
   },
   "dependencies": {
     "@gsap/react": "^2.1.2",
