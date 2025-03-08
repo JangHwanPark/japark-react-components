@@ -1,46 +1,46 @@
-name: Publish to npm (Stage)
-
-on:
-  push:
-    branches:
-      - stage
-
-jobs:
-  publish:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v4
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: 18
-          registry-url: 'https://registry.npmjs.org/'
-
-      - name: Install Dependencies
-        run: npm install
-
-      - name: Bump Minor Version
-        run: |
-          CURRENT_VERSION=$(node -p "require('./package.json').version")
-          MAJOR=$(echo $CURRENT_VERSION | cut -d. -f1)
-          MINOR=$(echo $CURRENT_VERSION | cut -d. -f2)
-          NEW_VERSION="$MAJOR.$((MINOR + 1)).0"
-
-          echo "NEW_VERSION=$NEW_VERSION" >> $GITHUB_ENV
-          npm version $NEW_VERSION --no-git-tag-version
-
-      - name: Publish to npm
-        run: npm publish
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-
-      - name: Push Changes
-        run: |
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git add package.json
-          git commit -m "chore: bump version to $NEW_VERSION"
-          git push
+#name: Publish to npm (Stage)
+#
+#on:
+#  push:
+#    branches:
+#      - stage
+#
+#jobs:
+#  publish:
+#    runs-on: ubuntu-latest
+#
+#    steps:
+#      - name: Checkout Repository
+#        uses: actions/checkout@v4
+#
+#      - name: Setup Node.js
+#        uses: actions/setup-node@v4
+#        with:
+#          node-version: 18
+#          registry-url: 'https://registry.npmjs.org/'
+#
+#      - name: Install Dependencies
+#        run: npm install
+#
+#      - name: Bump Minor Version
+#        run: |
+#          CURRENT_VERSION=$(node -p "require('./package.json').version")
+#          MAJOR=$(echo $CURRENT_VERSION | cut -d. -f1)
+#          MINOR=$(echo $CURRENT_VERSION | cut -d. -f2)
+#          NEW_VERSION="$MAJOR.$((MINOR + 1)).0"
+#
+#          echo "NEW_VERSION=$NEW_VERSION" >> $GITHUB_ENV
+#          npm version $NEW_VERSION --no-git-tag-version
+#
+#      - name: Publish to npm
+#        run: npm publish
+#        env:
+#          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+#
+#      - name: Push Changes
+#        run: |
+#          git config --global user.name "github-actions[bot]"
+#          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+#          git add package.json
+#          git commit -m "chore: bump version to $NEW_VERSION"
+#          git push

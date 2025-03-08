@@ -1,56 +1,56 @@
-name: Publish to npm (Dev)
-
-on:
-  push:
-    branches:
-      - dev
-
-jobs:
-  publish:
-    runs-on: ubuntu-latest
-
-    # GitHub Actions에서 git push 권한 부여
-    permissions:
-      contents: write
-
-    steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v4
-        #  PAT 사용 (GitHub Secrets에 저장한 토큰)
-        with:
-          token: ${{ secrets.ACTIONS_PAT }}
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: 18
-          registry-url: 'https://registry.npmjs.org/'
-
-      - name: Install Dependencies
-        run: npm install
-
-      - name: Bump Patch Version
-        run: |
-          CURRENT_VERSION=$(node -p "require('./package.json').version")
-          MAJOR=$(echo $CURRENT_VERSION | cut -d. -f1)
-          MINOR=$(echo $CURRENT_VERSION | cut -d. -f2)
-          PATCH=$(echo $CURRENT_VERSION | cut -d. -f3)
-          NEW_VERSION="$MAJOR.$MINOR.$((PATCH + 1))"
-
-          echo "NEW_VERSION=$NEW_VERSION" >> $GITHUB_ENV
-          npm version $NEW_VERSION --no-git-tag-version
-
-      - name: Publish to npm
-        run: npm publish
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-
-      - name: Push Changes
-        run: |
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git add package.json
-          git commit -m "chore: bump version to $NEW_VERSION"
-          git push https://x-access-token:${{ secrets.ACTIONS_PAT }}@github.com/JangHwanPark/japark-react-components.git dev
-        env:
-          ACTIONS_PAT: ${{ secrets.ACTIONS_PAT }}
+#name: Publish to npm (Dev)
+#
+#on:
+#  push:
+#    branches:
+#      - dev
+#
+#jobs:
+#  publish:
+#    runs-on: ubuntu-latest
+#
+#    # GitHub Actions에서 git push 권한 부여
+#    permissions:
+#      contents: write
+#
+#    steps:
+#      - name: Checkout Repository
+#        uses: actions/checkout@v4
+#        #  PAT 사용 (GitHub Secrets에 저장한 토큰)
+#        with:
+#          token: ${{ secrets.ACTIONS_PAT }}
+#
+#      - name: Setup Node.js
+#        uses: actions/setup-node@v4
+#        with:
+#          node-version: 18
+#          registry-url: 'https://registry.npmjs.org/'
+#
+#      - name: Install Dependencies
+#        run: npm install
+#
+#      - name: Bump Patch Version
+#        run: |
+#          CURRENT_VERSION=$(node -p "require('./package.json').version")
+#          MAJOR=$(echo $CURRENT_VERSION | cut -d. -f1)
+#          MINOR=$(echo $CURRENT_VERSION | cut -d. -f2)
+#          PATCH=$(echo $CURRENT_VERSION | cut -d. -f3)
+#          NEW_VERSION="$MAJOR.$MINOR.$((PATCH + 1))"
+#
+#          echo "NEW_VERSION=$NEW_VERSION" >> $GITHUB_ENV
+#          npm version $NEW_VERSION --no-git-tag-version
+#
+#      - name: Publish to npm
+#        run: npm publish
+#        env:
+#          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+#
+#      - name: Push Changes
+#        run: |
+#          git config --global user.name "github-actions[bot]"
+#          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+#          git add package.json
+#          git commit -m "chore: bump version to $NEW_VERSION"
+#          git push https://x-access-token:${{ secrets.ACTIONS_PAT }}@github.com/JangHwanPark/japark-react-components.git dev
+#        env:
+#          ACTIONS_PAT: ${{ secrets.ACTIONS_PAT }}
