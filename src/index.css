@@ -47,3 +47,7 @@
     --color-background: #F5F7FA;
     --color-text: #1F2937;
 }
+
+body {
+    box-sizing: border-box;
+}
