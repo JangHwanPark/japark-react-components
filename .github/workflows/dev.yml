@@ -9,9 +9,16 @@ jobs:
   publish:
     runs-on: ubuntu-latest
 
+    # GitHub Actions에서 git push 권한 부여
+    permissions:
+      contents: write
+
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
+        #  PAT 사용 (GitHub Secrets에 저장한 토큰)
+        with:
+          token: ${{ secrets.ACTIONS_PAT }}
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -44,4 +51,6 @@ jobs:
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git add package.json
           git commit -m "chore: bump version to $NEW_VERSION"
-          git push
+          git push https://x-access-token:${{ secrets.ACTIONS_PAT }}@github.com/JangHwanPark/japark-react-components.git dev
+        env:
+          ACTIONS_PAT: ${{ secrets.ACTIONS_PAT }}
