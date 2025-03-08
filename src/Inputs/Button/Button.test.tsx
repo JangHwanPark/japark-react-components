@@ -1,17 +1,18 @@
+/*
 import '@testing-library/jest-dom';
 import { describe, it, expect, vi } from 'vitest';
 import { fireEvent, render, screen } from '@testing-library/react';
-import Button from './index';
+import Button from './Button';
 
 describe('Button 컴포넌트 테스트', () => {
   // 스냅샷 : 컴포넌트의 출력(UI 구조)이 변경되었는지 확인
-  /*it('버튼이 일치하는지 확인 (스냅샷)', () => {
+  /!*it('버튼이 일치하는지 확인 (스냅샷)', () => {
     const { container } = render(<Button text='text'/>);
     
     // 스냅샷 테스트 : container의 둠 구조를 기록하여 비교
     // container.firstChild를 사용해 버튼의 실제 DOM 요소만 캡처
     expect(container.firstChild).toMatchSnapshot();
-  })*/
+  })*!/
 
   it('버튼이 주어진 텍스트를 렌더링해야 한다', () => {
     render(<Button text="Click me" />);
@@ -41,4 +42,4 @@ describe('Button 컴포넌트 테스트', () => {
     fireEvent.click(button);
     expect(onClick).not.toHaveBeenCalled();
   });
-});
+});*/

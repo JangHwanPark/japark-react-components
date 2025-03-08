@@ -1,1 +1,49 @@
 @import 'tailwindcss';
+
+/* 색상 팔레트 (Soft Neutral) */
+/*@theme {
+    --color-primary: #8D99AE;
+    --color-secondary: #A8B5C3;
+    --color-tertiary: #E9ECEF;
+    --color-success: #81C995;
+    --color-warning: #E0A458;
+    --color-danger: #D86F5F;
+    --color-background: #F8F9FA;
+    --color-text: #343A40;
+}*/
+
+/* 색상 팔레트 (High-Tech Blue) */
+/*@theme {
+    --color-primary: #2563EB;
+    --color-secondary: #1E40AF;
+    --color-tertiary: #64748B;
+    --color-success: #16A34A;
+    --color-warning: #F59E0B;
+    --color-danger: #DC2626;
+    --color-background: #0A0F25;
+    --color-text: #E5E7EB;
+}*/
+
+/* 색상 팔레트 (Pastel Modern) */
+/*@theme {
+    --color-primary: #93C5FD;
+    --color-secondary: #F9A8D4;
+    --color-tertiary: #FDE68A;
+    --color-success: #6EE7B7;
+    --color-warning: #FBBF24;
+    --color-danger: #FCA5A5;
+    --color-background: #FEF3C7;
+    --color-text: #374151;
+}*/
+
+/* 색상 팔레트 (B2B SaaS) */
+@theme {
+    --color-primary: #4C82EF;
+    --color-secondary: #6B5B95;
+    --color-tertiary: #A6B1E1;
+    --color-success: #50C878;
+    --color-warning: #FFA447;
+    --color-danger: #D7263D;
+    --color-background: #F5F7FA;
+    --color-text: #1F2937;
+}
