@@ -1,13 +1,13 @@
-import Checkbox from './Inputs/Checkbox/Checkbox';
+import Toast from './Feedback/Toast/Toast';
 
 function App() {
   return (
     <div className="w-full h-screen flex items-center justify-center bg-[#0f1214]">
       <div className="flex gap-4 p-4">
-        <Checkbox size="lg" color="success" />
-        <Checkbox checked size="lg" color="success" />
-        <Checkbox disabled size="lg" color="success" />
-        <Checkbox checked disabled size="lg" color="success" />
+        <Toast message="default Type" />
+        <Toast message="success" type="success" />
+        <Toast message="error" type="error" />
+        <Toast message="warning" type="warning" />
       </div>
     </div>
   );
