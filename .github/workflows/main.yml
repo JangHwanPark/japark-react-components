@@ -1,4 +1,4 @@
-name: Update Build Number
+name: Update Build Number and Push
 
 on:
   push:
@@ -33,17 +33,10 @@ jobs:
           COMMIT_COUNT=${{ env.COMMIT_COUNT }}
           jq --arg build "$COMMIT_COUNT" '.build = ($build | tonumber)' package.json > temp.json && mv temp.json package.json
 
-      - name: Set up SSH
-        run: |
-          mkdir -p ~/.ssh
-          echo "${{ secrets.ACTIONS_DEPLOY_KEY }}" > ~/.ssh/id_rsa
-          chmod 600 ~/.ssh/id_rsa
-          ssh-keyscan github.com >> ~/.ssh/known_hosts
-
       - name: Commit and push changes
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions@github.com"
           git add package.json
           git commit -m "🔄 Update build number to ${{ env.COMMIT_COUNT }}" || echo "No changes to commit"
-          git push git@github.com:JangHwanPark/japark-react-components.git HEAD:$(git rev-parse --abbrev-ref HEAD)
+          git push https://x-access-token:${{ secrets.ACTIONS_PAT }}@github.com/JangHwanPark/japark-react-components.git HEAD:$(git rev-parse --abbrev-ref HEAD)
