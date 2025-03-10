@@ -1,5 +1,13 @@
 import clsx from "clsx";
 
+interface CardProps {
+ title: string;
+ description: string;
+ imgUrl?: string;
+ size?: "sm" | "md" | "lg" | "xl";
+ className?: string;
+}
+
 const Card = ({
  title,
  description,
