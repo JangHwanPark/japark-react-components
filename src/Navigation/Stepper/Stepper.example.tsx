@@ -1,4 +1,4 @@
-import Stepper from "./Navigation/Stepper/Stepper";
+import Stepper from "./Stepper";
 
 const data = [
  "test 01",
@@ -6,7 +6,7 @@ const data = [
  "test 03",
 ];
 
-function App() {
+const StepperExample = () => {
  return (
   <div className="w-full h-screen flex items-center justify-center bg-[#0f1214] text-background">
    <div className="w-full flex flex-col">
@@ -18,6 +18,6 @@ function App() {
    </div>
   </div>
  );
-}
+};
 
-export default App;
+export default StepperExample;
