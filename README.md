@@ -4,8 +4,6 @@
   <h1>Japark React Components</h1>
 </div>
 
----
-
 ## Project Introduction
 
 This project is a React component library built with React, Tailwind CSS, TypeScript, and GSAP.
