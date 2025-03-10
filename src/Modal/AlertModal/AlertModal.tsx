@@ -27,10 +27,12 @@ const AlertModal = ({
   useState(false);
 
  const handleSuccess = () => {
+  setClicked(true);
   console.log("Success", clicked);
  };
 
  const handleClose = () => {
+  setClicked(false);
   console.log("Close", clicked);
  };
 
