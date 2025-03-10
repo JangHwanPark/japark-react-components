@@ -1,2 +1,3 @@
-export { default as Avatar } from './Avatar/Avatar';
-export { default as ProgressBar } from './ProgressBar/ProgressBar';
+export { default as ProgressBar } from "./ProgressBar/ProgressBar";
+export { default as Timeline } from "./Timeline/Timeline";
+export { default as Tooltip } from "./Tooltip/Tooltip";
