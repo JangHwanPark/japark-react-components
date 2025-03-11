@@ -10,8 +10,7 @@ const useCarousel = (
  const isAnimating = useRef(false); // 애니메이션 중복 방지
 
  useGSAP(() => {
-  if (!carouselRef.current || totalSlides <= 1) return;
-
+  if (!carouselRef.current) return;
   gsap.to(carouselRef.current, {
    x: `-${current * 100}%`, // X축 이동
    duration: 0.5, // 애니메이션 지속 시간
@@ -33,7 +32,7 @@ const useCarousel = (
   if (isAnimating.current || current >= totalSlides - 1) return;
   isAnimating.current = true;
   setCurrent((prev) => prev + 1);
- }, [current, totalSlides]);
+ }, [current, totalSlides, isAnimating]);
 
  const prevSlide = useCallback(() => {
   if (isAnimating.current) return;
