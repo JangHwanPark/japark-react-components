@@ -1,7 +1,7 @@
 {
   "name": "japark-react-components",
   "version": "0.1.0",
-  "build": 125,
+  "build": 127,
   "main": "dist/index.js",
   "license": "MIT",
   "module": "dist/index.esm.js",
