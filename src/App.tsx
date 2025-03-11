@@ -10,6 +10,7 @@ function App() {
     <Toast message="error" type="error" />
     <Toast message="warning" type="warning" size="lg" />
     <Toast message="Custom Icon" type="info" size="lg" icon={<GrInfo />} />
+    <Toast message="애니메이션 적용" duration={3} type="warning" size="lg" />
    </div>
   </div>
  );

@@ -3,6 +3,8 @@ import clsx from "clsx";
 import { FaInfo, FaRegCheckCircle } from "react-icons/fa";
 import { MdErrorOutline } from "react-icons/md";
 import { IoClose, IoWarningOutline } from "react-icons/io5";
+import { useGSAP } from "@gsap/react";
+import { gsap } from "gsap";
 
 interface ToastProps {
  id?: string;
@@ -10,6 +12,7 @@ interface ToastProps {
  icon?: ReactNode;
  type?: "info" | "success" | "error" | "warning";
  size?: "sm" | "md" | "lg";
+ duration?: number;
  onClose?: () => void;
 }
 
@@ -22,9 +25,24 @@ const Toast = forwardRef<any, ToastProps>(
    type = "success",
    size = "md",
    onClose,
+   duration,
   },
   ref,
  ) => {
+  useGSAP(() => {
+   if (!duration) return;
+   const tl = gsap.timeline();
+   tl.to(`#${id}`, {
+    opacity: 0,
+    y: -50,
+    duration: duration,
+    // delay: duration,
+    onComplete: () => {
+     if (onClose) onClose();
+    },
+   });
+  }, [id, duration, onClose]);
+
   const toastClass = clsx(
    "relative w-full px-6 py-4 flex items-center gap-5 rounded-lg bg-white shadow-md border",
    {
