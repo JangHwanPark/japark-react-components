@@ -1,36 +1,18 @@
 import { AlertModal } from "../index";
+import { useModal } from "../../hooks/useMadal/useModal";
+import { Button } from "../../Inputs";
 
 const AlertModalExample = () => {
+ const { isOpen, openModal, closeModal } = useModal();
  return (
-  <div className="w-full h-screen flex items-center justify-center bg-[#0f1214] text-background">
-   <div className="w-full flex flex-col justify-center items-center gap-5">
-    {/* default Modal */}
-    <AlertModal title="모달 제목" description="모달 설명" size="sm" />
-    <AlertModal title="모달 제목" description="모달 설명" />
-    <AlertModal title="모달 제목" description="모달 설명" size="lg" />
-
-    {/* Modal Types */}
-    <div className="grid grid-rows-2 grid-cols-2 gap-2">
-     <AlertModal title="모달 제목" description="모달 설명" size="sm" />
-     <AlertModal
-      alert="success"
-      title="모달 제목"
-      description="모달 설명"
-      size="sm"
-     />
-     <AlertModal
-      alert="warning"
-      title="모달 제목"
-      description="모달 설명"
-      size="sm"
-     />
-     <AlertModal
-      alert="error"
-      title="모달 제목"
-      description="모달 설명"
-      size="sm"
-     />
-    </div>
+  <div className="w-full h-screen flex items-center justify-center bg-background">
+   <div className="w-full max-w-3xl mx-auto flex flex-col gap-4 p-4">
+    <Button onClick={openModal}>오버레이 모달 열기</Button>
+    {isOpen && (
+     <AlertModal title="test" close={closeModal} overlay>
+      test
+     </AlertModal>
+    )}
    </div>
   </div>
  );
