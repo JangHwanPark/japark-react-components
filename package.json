@@ -21,7 +21,8 @@
     "eject": "react-scripts eject",
     "release": "npm version patch && npm publish",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "deploy-storybook": "chromatic --project-token=YOUR_CHROMATIC_TOKEN"
   },
   "dependencies": {
     "@gsap/react": ">=2.1.2",
@@ -54,6 +55,7 @@
     "@types/react": "^19.0.8",
     "@types/react-dom": "^19.0.3",
     "@vitejs/plugin-react": "^4.3.4",
+    "chromatic": "^11.27.0",
     "eslint": "^9.19.0",
     "eslint-plugin-react-hooks": "^5.0.0",
     "eslint-plugin-react-refresh": "^0.4.18",

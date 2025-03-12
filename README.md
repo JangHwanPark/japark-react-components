@@ -1,5 +1,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
+[NPM](https://www.npmjs.com/package/japark-react-components)
+[Docs](https://67d0e7de82d92b97e334cb53-hcvcpmzadf.chromatic.com/?path=/docs/button-button--docs)
 ## Project Introduction
 
 This project is a React component library built with React, Tailwind CSS, TypeScript, and GSAP.
