@@ -1,9 +1,5 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-<div style='text-align: center'>
-  <h1>Japark React Components</h1>
-</div>
-
 ## Project Introduction
 
 This project is a React component library built with React, Tailwind CSS, TypeScript, and GSAP.

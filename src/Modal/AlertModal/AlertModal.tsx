@@ -1,12 +1,12 @@
 import { ReactNode, HTMLAttributes } from "react";
 import clsx from "clsx";
-import { Button } from "../../Inputs";
 import { FaInfo } from "react-icons/fa";
 import {
  MdCheckCircleOutline,
  MdErrorOutline,
  MdWarningAmber,
 } from "react-icons/md";
+import { Button } from "../../Button";
 
 interface AlertModalProps extends HTMLAttributes<HTMLDivElement> {
  title: string;
