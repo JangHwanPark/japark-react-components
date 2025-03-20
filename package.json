@@ -2,18 +2,14 @@
   "name": "japark-react-components",
   "version": "0.1.21",
   "build": 235,
-  "main": "dist/index.js",
+  "main": "dist/index.es.js",
   "license": "MIT",
-  "module": "dist/index.esm.js",
-  "types": "dist/index.d.ts",
+  "module": "dist/index.es.js",
   "private": false,
   "type": "module",
   "exports": {
-    ".": {
-      "import": "./dist/index.es.js",
-      "require": "./dist/index.cjs.js",
-      "default": "./dist/index.js"
-    }
+    "import": "./dist/index.es.js",
+    "default": "./dist/index.es.js"
   },
   "files": [
     "dist"
