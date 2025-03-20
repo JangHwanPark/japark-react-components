@@ -1,6 +1,6 @@
 {
   "name": "japark-react-components",
-  "version": "0.1.11",
+  "version": "0.1.12",
   "build": 185,
   "main": "dist/index.js",
   "license": "MIT",
