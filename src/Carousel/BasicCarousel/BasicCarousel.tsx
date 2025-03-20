@@ -2,7 +2,7 @@ import { ReactNode, useRef } from "react";
 import { MdNavigateNext } from "react-icons/md";
 import { GrFormPrevious } from "react-icons/gr";
 import { useCarousel } from "../../hooks/useCarousel/useCarousel";
-import Button from "../../Button/Button/Button.tsx";
+import Button from "../../Button/Button/Button";
 
 interface CarouselProps {
  children: ReactNode;

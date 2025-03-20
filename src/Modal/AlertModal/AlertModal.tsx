@@ -10,7 +10,7 @@ import { Button } from "../../Button";
 
 interface AlertModalProps extends HTMLAttributes<HTMLDivElement> {
  title: string;
- close: () => void;
+ close?: () => void;
  children: ReactNode;
  overlay?: boolean;
  align?: "left" | "center";

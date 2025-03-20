@@ -1,12 +1,31 @@
 {
-  "files": [],
-  "references": [{ "path": "./tsconfig.node.json" }],
   "compilerOptions": {
-    "types": ["vitest/globals"],
+    "target": "ES2022",
+    "lib": ["ES2023", "DOM"],
+    "module": "ESNext",
+    "skipLibCheck": true,
+
+    /* Module Resolution 설정 수정 */
+    "moduleResolution": "bundler",
+
+    /* JSX 지원 */
     "jsx": "react-jsx",
-    "moduleResolution": "node",
-    "esModuleInterop": true,
-    "skipLibCheck": true
+    "jsxImportSource": "react",
+
+    /* Build 설정 */
+    "composite": true,
+    "declaration": true,
+    "declarationDir": "dist",
+    "emitDeclarationOnly": false,
+    "outDir": "dist",
+    "noEmit": false,
+
+    /* Linting */
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+    "noUncheckedSideEffectImports": true
   },
-  "include": ["tests"]
+  "include": ["vite.config.ts", "src"]
 }

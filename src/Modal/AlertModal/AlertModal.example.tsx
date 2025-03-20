@@ -1,6 +1,6 @@
 import { AlertModal } from "../index";
 import { useModal } from "../../hooks/useMadal/useModal";
-import { Button } from "../../Inputs";
+import { Button } from "../../Button";
 
 const AlertModalExample = () => {
  const { isOpen, openModal, closeModal } = useModal();
