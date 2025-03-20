@@ -6,7 +6,7 @@
     "skipLibCheck": true,
 
     /* Module Resolution 설정 수정 */
-    "moduleResolution": "bundler",
+    "moduleResolution": "node",
 
     /* JSX 지원 */
     "jsx": "react-jsx",
