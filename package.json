@@ -1,7 +1,7 @@
 {
   "name": "japark-react-components",
   "version": "0.1.13",
-  "build": 196,
+  "build": 199,
   "main": "dist/index.js",
   "license": "MIT",
   "module": "dist/index.esm.js",
@@ -20,7 +20,6 @@
   ],
   "scripts": {
     "build": "tsc -b && vite build",
-    "postbuild": "cp dist/index.es.js dist/index.js",
     "dev": "vite",
     "lint": "eslint .",
     "preview": "vite preview",
