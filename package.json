@@ -1,6 +1,6 @@
 {
   "name": "japark-react-components",
-  "version": "0.1.11",
+  "version": "0.1.12",
   "build": 194,
   "main": "dist/index.js",
   "license": "MIT",
@@ -10,8 +10,9 @@
   "type": "module",
   "exports": {
     ".": {
-      "import": "./dist/japark-react-components.es.js",
-      "require": "./dist/japark-react-components.umd.js"
+      "import": "./dist/index.es.js",
+      "require": "./dist/index.cjs.js",
+      "default": "./dist/index.umd.js"
     }
   },
   "files": [
