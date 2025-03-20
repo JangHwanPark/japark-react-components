@@ -1,31 +1,22 @@
 {
   "compilerOptions": {
-    "target": "ES2022",
-    "lib": ["ES2023", "DOM"],
-    "module": "ESNext",
+    "target": "es5",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
     "skipLibCheck": true,
-
-    /* Module Resolution 설정 수정 */
-    "moduleResolution": "bundler",
-
-    /* JSX 지원 */
-    "jsx": "react-jsx",
-    "jsxImportSource": "react",
-
-    /* Build 설정 */
-    "composite": true,
-    "declaration": true,
-    "declarationDir": "dist",
-    "emitDeclarationOnly": false,
-    "outDir": "dist",
-    "noEmit": false,
-
-    /* Linting */
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
     "strict": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
+    "forceConsistentCasingInFileNames": true,
     "noFallthroughCasesInSwitch": true,
-    "noUncheckedSideEffectImports": true
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": false,
+    "jsx": "react-jsx",
+    "declaration": true,
+    "outDir": "./dist"
   },
-  "include": ["vite.config.ts", "src"]
+  "include": ["./src/**/*.tsx", "./src/**/*.ts"]
 }
