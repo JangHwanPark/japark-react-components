@@ -1,5 +1,5 @@
 export * from "./Animation";
-export * from "./Button";
+export { Button } from "./Button";
 export * from "./Card";
 export * from "./DataDisplay";
 export * from "./Feedback";

@@ -2,15 +2,17 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import tailwindcss from "@tailwindcss/vite";
+import * as path from "node:path";
 
 // https://vite.dev/config/
 export default defineConfig({
  plugins: [react(), tailwindcss()],
  build: {
   lib: {
-   entry: "src/index.ts", // 번들링할 엔트리 파일 (컴포넌트 또는 유틸 함수)
+   entry: path.resolve(__dirname, "src/index.ts"),
    name: "JaparkReactComponents",
-   fileName: (format) => `japark-react-components.${format}.js`,
+   fileName: (format) => `index.${format}.js`,
+   formats: ["es", "cjs", "umd"],
   },
   rollupOptions: {
    external: ["react", "react-dom"], // React를 외부 의존성으로 설정하여 번들 크기 최적화

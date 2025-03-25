@@ -1,4 +1,5 @@
-import { ProgressBar } from './index';
+import ProgressBar from "./ProgressBar";
+
 
 const ProgressBarExample = () => {
   return (

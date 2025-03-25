@@ -1,18 +1,23 @@
 {
   "name": "japark-react-components",
-  "version": "0.1.4",
-  "build": 170,
-  "main": "dist/index.js",
+  "version": "0.1.33",
+  "build": 243,
   "license": "MIT",
-  "module": "dist/index.esm.js",
-  "types": "dist/index.d.ts",
   "private": false,
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "type": "module",
-  "files": [
-    "dist"
-  ],
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.js"
+    }
+  },
+  "browser": "./browser/specific/main.js",
   "scripts": {
-    "build": "tsc -b && vite build",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "prepare": "rm -rf dist && mkdir dist && tsc",
     "dev": "vite",
     "lint": "eslint .",
     "preview": "vite preview",
@@ -23,6 +28,24 @@
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "deploy-storybook": "chromatic --project-token=YOUR_CHROMATIC_TOKEN"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
   },
   "dependencies": {
     "@gsap/react": ">=2.1.2",
@@ -68,10 +91,5 @@
     "typescript-eslint": "^8.22.0",
     "vite": "^6.1.0",
     "vitest": "^3.0.6"
-  },
-  "eslintConfig": {
-    "extends": [
-      "plugin:storybook/recommended"
-    ]
   }
 }

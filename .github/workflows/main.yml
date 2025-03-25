@@ -1,42 +1,42 @@
-name: Update Build Number and Push
-
-on:
-  push:
-    branches:
-      - '**'  # 모든 브랜치에서 실행
-
-permissions:
-  contents: write
-
-jobs:
-  update-build:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-
-      - name: Install jq (if not exists)
-        run: |
-          if ! command -v jq &> /dev/null
-          then
-            echo "jq not found, installing..."
-            sudo apt-get update && sudo apt-get install -y jq
-          fi
-
-      - name: Get commit count
-        run: echo "COMMIT_COUNT=$(git rev-list --count HEAD)" >> $GITHUB_ENV
-
-      - name: Update package.json with build number
-        run: |
-          COMMIT_COUNT=${{ env.COMMIT_COUNT }}
-          jq --arg build "$COMMIT_COUNT" '.build = ($build | tonumber)' package.json > temp.json && mv temp.json package.json
-
-      - name: Commit and push changes
-        run: |
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "github-actions@github.com"
-          git add package.json
-          git commit -m "🔄 Update build number to ${{ env.COMMIT_COUNT }}" || echo "No changes to commit"
-          git push https://x-access-token:${{ secrets.ACTIONS_PAT }}@github.com/JangHwanPark/japark-react-components.git HEAD:$(git rev-parse --abbrev-ref HEAD)
+#name: Update Build Number and Push
+#
+#on:
+#  push:
+#    branches:
+#      - '**'  # 모든 브랜치에서 실행
+#
+#permissions:
+#  contents: write
+#
+#jobs:
+#  update-build:
+#    runs-on: ubuntu-latest
+#    steps:
+#      - name: Checkout repository
+#        uses: actions/checkout@v4
+#        with:
+#          fetch-depth: 0
+#
+#      - name: Install jq (if not exists)
+#        run: |
+#          if ! command -v jq &> /dev/null
+#          then
+#            echo "jq not found, installing..."
+#            sudo apt-get update && sudo apt-get install -y jq
+#          fi
+#
+#      - name: Get commit count
+#        run: echo "COMMIT_COUNT=$(git rev-list --count HEAD)" >> $GITHUB_ENV
+#
+#      - name: Update package.json with build number
+#        run: |
+#          COMMIT_COUNT=${{ env.COMMIT_COUNT }}
+#          jq --arg build "$COMMIT_COUNT" '.build = ($build | tonumber)' package.json > temp.json && mv temp.json package.json
+#
+#      - name: Commit and push changes
+#        run: |
+#          git config --global user.name "github-actions[bot]"
+#          git config --global user.email "github-actions@github.com"
+#          git add package.json
+#          git commit -m "🔄 Update build number to ${{ env.COMMIT_COUNT }}" || echo "No changes to commit"
+#          git push https://x-access-token:${{ secrets.ACTIONS_PAT }}@github.com/JangHwanPark/japark-react-components.git HEAD:$(git rev-parse --abbrev-ref HEAD)
