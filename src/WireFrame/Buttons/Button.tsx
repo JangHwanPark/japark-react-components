@@ -1,6 +1,6 @@
 const Button = () => {
  return (
-  <div>
+  <div className='frame_button'>
    <div></div>
    <div></div>
   </div>
