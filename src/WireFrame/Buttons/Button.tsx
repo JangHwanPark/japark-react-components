@@ -1,9 +1,11 @@
+import './Button.css';
+
 const Button = () => {
  return (
-  <div className='frame_button'>
-   <div></div>
-   <div></div>
-  </div>
+  <button className='frame_button'>
+   <div className='frame_img'></div>
+   <div className='frame_text'></div>
+  </button>
  );
 };
 
