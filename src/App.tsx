@@ -1,4 +1,4 @@
-import Button from "./WireFrame/Buttons/Button";
+import Card from "./WireFrame/Card/Card";
 
 function App() {
  return (
@@ -6,7 +6,7 @@ function App() {
    <div className="w-full max-w-3xl mx-auto flex flex-col gap-4 p-4 items-center">
     {/* button */}
     <div className='w-80'>
-     <Button/>
+     <Card/>
     </div>
    </div>
   </div>
